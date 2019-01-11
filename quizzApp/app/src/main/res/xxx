@@ -1,0 +1,106 @@
+
+    public void sendAns(View view) {
+        int degree=0;
+        for (int i = 0; i < numOfQuestion; i++) {
+            View viewByPosition = recyclerView.getLayoutManager().findViewByPosition(i);
+
+            radioLayout = viewByPosition.findViewById(R.id.radioLayout);
+            editText = viewByPosition.findViewById(R.id.EditLayout);
+            checkLayout = viewByPosition.findViewById(R.id.checkLayout);
+            if (editText.getVisibility() == View.VISIBLE) {
+                 degree = degree+toCheckedEditText(viewByPosition, i);
+
+            } else if (checkLayout.getVisibility() == View.VISIBLE) {
+               degree=degree+ toCheckedCheckLayout(viewByPosition, i);
+
+            } else if (radioLayout.getVisibility() == View.VISIBLE) {
+
+               degree=degree + toCheckedRadioLayout(viewByPosition, i);
+            }
+        }
+        Toast.makeText(this, degree + " deg " , Toast.LENGTH_SHORT).show();
+
+    }
+
+    private int toCheckedRadioLayout(View viewByPosition, int i) {
+        radioLayout = viewByPosition.findViewById(R.id.radioLayout);
+        textView = viewByPosition.findViewById(R.id.txtType);
+        RadioButton radioButton_A = viewByPosition.findViewById(R.id.radio_A);
+        RadioButton radioButton_B = viewByPosition.findViewById(R.id.radio_B);
+        RadioButton radioButton_C = viewByPosition.findViewById(R.id.radio_C);
+
+        if (radioButton_A.isChecked() == true) {
+            valueOfRadioButton = "a";
+        }
+        if (radioButton_B.isChecked() == true) {
+            valueOfRadioButton = "b";
+        }
+        if (radioButton_C.isChecked() == true) {
+            valueOfRadioButton = "c";
+        }
+        String s = answerArray[i];
+        if (valueOfRadioButton.equals(s)) {
+            textView.setText("1");
+        } else {
+            textView.setText("0");
+        }
+        Toast.makeText(this, textView.getText() + " i " + i, Toast.LENGTH_SHORT).show();
+        return Integer.valueOf(textView.getText().toString());
+    }
+
+
+    private int toCheckedCheckLayout(View viewByPosition, int i) {
+        textView = viewByPosition.findViewById(R.id.txtType);
+        checkLayout = viewByPosition.findViewById(R.id.checkLayout);
+
+        CheckBox checkA = viewByPosition.findViewById(R.id.check_A);
+        CheckBox checkB = viewByPosition.findViewById(R.id.check_B);
+        CheckBox checkC = viewByPosition.findViewById(R.id.check_C);
+        CheckBox checkD = viewByPosition.findViewById(R.id.check_D);
+
+        if (checkA.isChecked() == true) {
+            valueOfChek[0] = "a";
+            Log.e("a", valueOfChek[0] + "");
+        }
+        if (checkB.isChecked() == true) {
+            valueOfChek[1] = "b";
+            Log.e("a", valueOfChek[1] + "");
+        }
+        if (checkC.isChecked() == true) {
+            valueOfChek[2] = "c";
+            Log.e("a", valueOfChek[2] + "");
+        }
+        if (checkD.isChecked() == true) {
+            valueOfChek[3] = "d";
+
+        }
+        sumValueOfCheck = valueOfChek.toString();
+        sumValueOfCheck = "";
+        for (int t = 0; t < valueOfChek.length; t++) {
+            sumValueOfCheck += valueOfChek[t];
+        }
+
+        if (sumValueOfCheck.equals(answerArray[i])) {
+            textView.setText("1");
+        } else {
+            textView.setText("0");
+        }
+        Toast.makeText(this, textView.getText() + " i " + i, Toast.LENGTH_SHORT).show();
+return Integer.valueOf(textView.getText().toString());
+    }
+
+
+    private int toCheckedEditText(View viewByPosition, int i) {
+        editText = viewByPosition.findViewById(R.id.EditLayout);
+        textView = viewByPosition.findViewById(R.id.txtType);
+
+        text = String.valueOf(editText.getText());
+
+        if (text.equals(answerArray[i])) {
+            textView.setText("1");
+        } else {
+            textView.setText("0");
+        }
+        Toast.makeText(this, textView.getText() + " i " + i, Toast.LENGTH_SHORT).show();
+        return Integer.valueOf(textView.getText().toString());
+    }

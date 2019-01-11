@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradiant"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_margin="4dp"
+        android:contentDescription="@string/todo"
+        android:padding="4dp"
+        android:src="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/yourDegree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="4dp"
+        android:gravity="center"
+        android:padding="4dp"
+        android:text="Last Degree : 0 " />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:padding="4dp"
+        android:text="@string/select_your_age"
+        android:textColor="#e9e9ff"
+        android:textSize="20sp" />
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="220dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:layout_margin="4dp"
+        android:padding="4dp"
+        android:saveEnabled="false" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:onClick="clickOnTest"
+        android:padding="4dp"
+        android:text="@string/test"
+        android:textColor="#0a0a69" />
+
+</LinearLayout>

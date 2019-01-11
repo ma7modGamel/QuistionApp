@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Test IQ</string>
+    <string name="select_your_age">Select your Age ..</string>
+    <string name="test">test</string>
+    <string name="todo">logo IQ</string>
+    <string name="title_activity_question_activity">question_activity</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_question">QuestionActivity</string>
+
+
+</resources>
